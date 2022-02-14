@@ -1,0 +1,105 @@
+<p align="center">
+    <img width="300" src="https://github.com/withfig/fig/blob/main/static/FigBanner.png?raw=true"/>
+</p>
+
+---
+
+![os](https://img.shields.io/badge/os-%20macOS-light)
+[![Signup](https://img.shields.io/badge/signup-private%20beta-blueviolet)](https://withfig.com?ref=github_autocomplete)
+[![Documentation](https://img.shields.io/badge/documentation-black)](https://withfig.com/docs/autocomplete/getting-started)
+[![Slack](https://img.shields.io/badge/slack-purple)](https://withfig.com/community)
+[![Twitter](https://img.shields.io/twitter/follow/withfig.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=withfig)
+
+**[Fig](https://withfig.com?ref=github_autocomplete) adds autocomplete to the terminal.** As you type, Fig pops up subcommands, options, and contextually relevant arguments in your existing terminal on macOS.
+
+
+![Fig Visual Autocomplete For Your Terminal Demo](https://withfig.com/gifs/demo-with-header.gif)
+
+
+## Add a completion spec for a CLI tool 
+Looking to improve autocomplete functionality or add support for your favorite CLI tool? We welcome contributions for new specs!
+
+Completion specs are defined in a *declarative* JSON schema, that specifies `subcommands`, `options` and `arguments`. Suggestions can be generated dynamically by running shell commands or reading local files, in addition to the information in the spec itself.
+
+**For more documentation and tutorials**, visit [withfig.com/docs](https://withfig.com/docs/autocomplete/getting-started)
+
+**To request completions for a CLI tool**, open an [issue](https://github.com/withfig/autocomplete/issues/new).
+
+
+
+## Adding a Spec
+To add a new Spec simply run
+```bash
+npm run create-boilerplate
+```
+
+## Typechecking Your Spec
+This Repository uses TypeScript to verify the types. 
+
+You can typecheck the specs using 
+
+```bash
+npm test
+```
+
+## Developing a Spec
+In order to get the best developer experience while creating a new spec we added a dev mode.
+You will first need to point the `specs` folder of this repo to fig. 
+You can do that by running
+```sh
+fig settings devAutocompleteFolder $(pwd)/specs
+```
+
+Now you can invoke
+
+```sh
+npm run dev
+```
+
+This command disables spec caching and will load the specs from the `devAutocompleteFolder` instead of `.fig/autocomplete`.
+
+it will also compile the scripts from the `dev` folder as you change them. 
+
+This means you can change a spec in the dev folder and instantly try out the new spec in your terminal.
+
+## Using the specs locally
+In order to use the the specs locally you first need to compile them.
+You can do that by running
+
+```bash
+npm run build
+```
+
+after that you need to copy them into your local `.fig` folder.
+You can do that by running
+```bash
+npm run copy:all
+```
+if you wanto to copy all specs or
+
+```bash
+npm run copy ./specs/<name>.js
+```
+to only copy one spec.
+
+
+## FAQ
+
+#### What terminals does Fig work with?
+Fig works with iTerm, the native MacOS Terminal app, Hyper and the integrated terminal in VSCode.
+
+#### How does Fig work?
+Fig uses the Accessibility API on Mac to insert text on your behalf and read the current keybuffer.
+
+#### Does Fig work on Windows or Linux?
+Currently, Fig is only available on MacOS.
+
+#### How can I get access?
+Sign up for the waitlist at [withfig.com](https://withfig.com?ref=github-autocomplete). Fig is currently in a private beta. We are onboarding batches of new users each week. 
+
+#### Can I use this for internal scripts and CLI tools at my company?
+Yes! Check out the [autocomplete for teams](https://withfig.com/docs/autocomplete/autocomplete-for-teams) in our docs. Reach out to hello@withfig.com if you need help.
+
+
+#### Did we miss something?
+Get in touch at hello@withfig.com or chat with us on [Slack](https://withfig.com/community)
